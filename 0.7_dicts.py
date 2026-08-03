@@ -52,3 +52,11 @@ my_new_dict = dict.fromkeys(my_dict)
 print((my_new_dict))
 my_new_dict = dict.fromkeys(my_dict, "Mouredev")
 print((my_new_dict))
+
+my_values = my_new_dict.values()
+print(type(my_values))
+
+print(list(my_new_dict.values()))
+print(dict.fromkeys(list(my_new_dict.values())))
+print(tuple(my_new_dict))
+print(set(my_new_dict))
