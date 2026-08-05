@@ -19,9 +19,10 @@ else:
 
 print("La ejecucuión continua")
 
-my_string = "Mi cadena de texto"
+my_string = ""
 
-if my_string:
-    print("Mi cadena de texto no es vacía")
-else:
+if not my_string:
     print("Mi cadena de texto es vacía")
+
+if my_string == "Mi cadena de texto":
+    print("Estas cadenas de texto coinciden")

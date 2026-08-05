@@ -1,6 +1,13 @@
-my_string = input("Pon algo: ")
+my_string = input("Escribe algo: ").lower() 
 
-if my_string:
-    print("Ok")
+if my_string == "":
+    print("¿Tu eres tonto? No te he dicho que escribieses algo.") 
+
+elif my_string == "tonto":
+    print("el que lo dice lo es 😄")
+    
+elif my_string == "la hipotenusa":
+    print("Cateto")
+
 else:
-    print("¿Tu eres tonto?")
+    print("Va, lo que tu digas")
