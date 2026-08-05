@@ -9,5 +9,8 @@ elif my_string == "tonto":
 elif my_string == "la hipotenusa":
     print("Cateto")
 
+elif my_string == "sus":
+    print("ඞ")
+    
 else:
     print("Va, lo que tu digas")
