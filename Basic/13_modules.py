@@ -1,11 +1,11 @@
 ### Modules ###
 
-import my_module
+import Basic.my_module as my_module
 
 my_module.sumValue(5, 3, 1)
 my_module.printValue("Hola Python")
 
-from my_module import sumValue, printValue
+from Basic.my_module import sumValue, printValue
 
 sumValue(5, 3, 1)
 printValue("Hola Python")
