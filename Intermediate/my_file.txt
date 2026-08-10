@@ -1,0 +1,6 @@
+Mi nombre es Jose Juan
+Mi apellido es Lara
+33 años
+Y mi lenguaje preferido es Python
+Aunque tambien me gusta Scrath
+Y Swift
