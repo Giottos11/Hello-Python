@@ -45,6 +45,8 @@ print(re.sub("Expresiones Regulares", "RegEx", my_string))
 
 # Patterns
 
+# Para aprender y validar expresiones regulares: https://regex101.com
+
 pattern = r"[l|L]ección"
 print(re.findall(pattern, my_string))
 
