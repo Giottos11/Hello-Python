@@ -1,7 +1,6 @@
 
 
-
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -47,12 +46,15 @@ async def user(id: int):
 async def user(id: int):
     return search_user(id)
 
-@app.post("/user/")
+@app.post("/user/", response_model=User,status_code=201)
 async def user(user: User):
     if type(search_user(user.id)) == User:
-        return {"error": "El usuario ya existe"}
-    else:
-        users_list.append(user)
+        raise HTTPException(status_code=404, detail="El usuario ya existe")
+        
+    
+    users_list.append(user)
+    return user
+
 
 @app.put("/user/")
 async def user(user: User):
@@ -67,6 +69,22 @@ async def user(user: User):
 
     if not found:
         return {"error": "No se ha actualizado el usuario"}
+    return user
+
+@app.delete("/user/{id}")
+async def user(id: int):
+
+    found = False
+
+    for index, saved_user in enumerate(users_list):
+        if saved_user.id == id:
+            del users_list[index]
+            found = True
+
+    if not found:
+        return {"error": "No se ha eliminado el usuario"}
+
+
 
 def search_user(id: int):
     users = filter(lambda user: user.id == id, users_list)
@@ -74,4 +92,3 @@ def search_user(id: int):
         return list(users)[0]
     except:
         return {"error": "No se ha encontrado el usuario"}
- 
