@@ -1,3 +1,5 @@
+
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -35,17 +37,21 @@ async def users():
     return users_list
 
 
-# Path
-@app.get("/user/{id}")
+@app.get("/user/{id}") # Path
 async def user(id: int):
     return search_user(id)
 
-# Query
 
-
-@app.get("/user/")
+@app.get("/user/") # Query
 async def user(id: int):
     return search_user(id)
+
+@app.post("/user/")
+async def user(user: User):
+    if type(search_user(user.id)) == User:
+        return {"error": "El usuario ya existe"}
+    else:
+        users_list.append(user)
 
 def search_user(id: int):
     users = filter(lambda user: user.id == id, users_list)
@@ -53,3 +59,4 @@ def search_user(id: int):
         return list(users)[0]
     except:
         return {"error": "No se ha encontrado el usuario"}
+    
