@@ -18,7 +18,7 @@ app.include_router(users.router)
 
 app.include_router(basic_auth_users.router)
 app.include_router(jwt_auth_users.router)
-app.include_router(users_db.router)
+app.include_router(users_db.router) # {"username": "carato","email": "carato@gamil.com"}
 
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
